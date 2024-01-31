@@ -1,0 +1,21 @@
+<!--오른쪽, 카테고리란은 Post Create시 필요없으므로, 제거 한 상태로 보이도록-->
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <title>{% block head_title %}Blog{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'blog/bootstrap/bootstrap.min.css' %}" media="screen">
+    <script src="https://kit.fontawesome.com/726bbd6862.js" crossorigin="anonymous"></script>
+</head>
+<body>
+{% include 'blog/navbar.html' %}
+<div class="container my-3">
+    <div class="row">
+        <div class="col-12" id="main-area">
+            {% block main_area %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
