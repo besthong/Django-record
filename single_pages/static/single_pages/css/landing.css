@@ -1,0 +1,15 @@
+body {
+    background: url('/static/single_pages/images/amsterdam_sky.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;  //mozila firefox
+    background-size: cover;
+    -o-background-size: cover;      //Opera 브라우저
+}
+
+section {
+    margin-bottom: 150px;
+}
+
+.card{                                              // .card는 class='card'를 의미
+    background-color: rgba(255,255,255,0.6);        // 배경도 흰색으로 표시, 및 투명도 0.6 설정
+}
