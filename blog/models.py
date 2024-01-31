@@ -70,7 +70,7 @@ class Post(models.Model):
         if self.author.socialaccount_set.exists():
             return self.author.socialaccount_set.first().get_avatar_url()
         else:
-            return f'https://doitdjango.com/avatar/id/1792/ba5c68433666ad85/svg/{self.author.email}'
+            return f'https://doitdjango.com/avatar/id/1792/*/svg/{self.author.email}'
 
 
 class Comment(models.Model):
@@ -84,7 +84,7 @@ class Comment(models.Model):
         if self.author.socialaccount_set.exists():
             return self.author.socialaccount_set.first().get_avatar_url()
         else:
-            return f'https://doitdjango.com/avatar/id/1792/ba5c68433666ad85/svg/{self.author.email}'
+            return f'https://doitdjango.com/avatar/id/1792/*/svg/{self.author.email}'
 
     def __str__(self):
         return f'{self.author}::{self.content}'

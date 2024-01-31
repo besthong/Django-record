@@ -60,31 +60,6 @@
     {% endif %}
 
 
-<!--    {% if is_paginated %} &lt;!&ndash;만약 포스트개수가 5개 이하여서, pagination이 필요없을경우엔 나타내지않기위함&ndash;&gt;-->
-<!--    &lt;!&ndash; Pagination &ndash;&gt;-->
-<!--    <ul class="pagination justify-content-center mb-4">-->
-<!--        {% if page_obj.has_next %} &lt;!&ndash;다음페이지가 있는지 알아내어 버튼을 비활성화 상태로 할지 여부 결정위함&ndash;&gt;-->
-<!--            <li class="page-item">-->
-<!--                <a class="page-link" href="?page={{ page_obj.next_page_number }}">&larr; Older</a>-->
-<!--            </li>-->
-<!--        {% else %}-->
-<!--            <li class="page-item disabled">-->
-<!--                <a class="page-link" href="#">&larr; Older</a>-->
-<!--            </li>-->
-<!--        {% endif %}-->
-
-<!--        {% if page_obj.has_previous %}  &lt;!&ndash;이전페이지 있는지 알아내어 버튼 비활성화 할지 여부 결정 위함&ndash;&gt;-->
-<!--            <li class="page-item">-->
-<!--                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Newer &rarr;</a>-->
-<!--            </li>-->
-<!--        {% else %}-->
-<!--            <li class="page-item disabled">-->
-<!--                <a class="page-link" href="#">Newer &rarr;</a>-->
-<!--            </li>-->
-<!--        {% endif %}-->
-<!--    </ul>-->
-<!--    {% endif %}-->
-
     {% if is_paginated %} <!--만약 포스트개수가 5개 이하여서, pagination이 필요없을경우엔 나타내지않기위함-->
     <!-- Pagination -->
     <ul class="pagination justify-content-center mb-4">

@@ -217,30 +217,3 @@ def delete_post(request, pk): # 👈🏻 23/12/23 추가
     else:
         raise PermissionDenied
     #success_url = reverse_lazy('/blog/')
-
-
-
-'''
-#FBV (Functional Based View) 방식
-def index(request):
-    posts = Post.objects.all().order_by('-pk') #최신글부터 보이도록 orderby
-
-    return render(
-        request,
-        'blog/post_list.html',
-        {
-            'posts':posts,
-        }
-    )
-
-def single_post_page(request, pk):
-    post = Post.objects.get(pk=pk)
-
-    return render(
-        request,
-        'blog/post_detail.html',
-        {
-            'post':post,
-        }
-    )
-'''
