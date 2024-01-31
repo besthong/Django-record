@@ -1,0 +1,15 @@
+{% extends 'board/base_full_width.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}게시글 수정{% endblock %}
+
+{% block main_area %}
+    <h1>Edit 게시글</h1>
+    <hr/>
+    <form method="post">{% csrf_token %}
+        {{ form | crispy }}
+        <br/>
+
+        <button type="submit" class="btn btn-primary float-right">글 수정</button>
+    </form>
+    {{ form.media }}
+{% endblock %}

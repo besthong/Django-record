@@ -1,0 +1,63 @@
+{% extends 'board/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}
+{{ article.title }} - 게시판
+{% endblock %}
+
+{% block main_area %}
+    <head>
+        <title>자유게시판</title>
+        <link rel="stylesheet" href="/static/blog/bootstrap/bootstrap.min.css" media="screen">
+
+        <script src="https://kit.fontawesome.com/*.js" crossorigin="anonymous"></script>
+    </head>
+
+    <section class="py-1 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">자유게시판</h1>
+                <p class="lead text-muted">아무말대잔치</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h2>{{ article.title }}</h2>
+                    {% if user.is_authenticated and user == article.author %}
+                    <a class="btn btn-info btn-sm float-right mr-1" href="/board/update_article/{{ article.pk }}/" role="button"><i class="fas fa-pen">수정</i></a>
+                    <a class="btn btn-warning btn-sm float-right" href="#" role="button" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-pen">삭제</i></a>
+
+                    <!--삭제Modal--><!--👈🏻 23/12/23 추가-->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteModalLabel">Delete Article</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>해당 게시글 "{{ article.title }}" 를(을) 삭제하시겠습니까?"</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                                    <a href="/board/delete_article/{{ article.pk }}/" class="btn btn-danger">삭제</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                <h6 class="card-subtitle mb-2 text-muted">{{ article.author }} | {{ article.created_at | date:"Y-m-d H:i"  }}</h6>
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ article.content | linebreaks }}</p>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
